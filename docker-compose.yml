@@ -1,0 +1,17 @@
+version: "1"
+services:
+ skyeng-vite-docker:
+   build:
+     context: .
+     dockerfile: Dockerfile.prod
+   image: netris-vite-docker
+   container_name: netris-vite-docker
+   entrypoint: /bin/sh
+   ports:
+     - 8080:3000
+   working_dir: /srv/app
+   volumes:
+     - type: bind
+       source: ./
+       target: /srv/app
+   tty: true

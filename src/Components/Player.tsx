@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { forwardRef } from 'react';
 
-const Player = () => {
-    const [count, setCount] = useState(0)
-  
-    return (
-      <>
+const Player = forwardRef<HTMLVideoElement, { url: string }>(({ url }, ref) => {
 
-      </>
-    )
-  }
-  
-  export default Player
-  
+    return <video ref={ref} src={url} controls
+      className='video-element'
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'contain',
+        position: 'absolute',
+        boxSizing: 'border-box',
+      }}
+    />;
+});
+
+export default Player;
