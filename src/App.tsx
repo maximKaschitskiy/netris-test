@@ -21,7 +21,7 @@ const App = () => {
       loadVideo(videoRef),
       loadEvents(config.eventsURL)
         .then((events) => {
-          dispatch(setEventsList([events[0], events[1], events[2]]));
+          dispatch(setEventsList(events));
         })
     )
       .catch((error) => {
